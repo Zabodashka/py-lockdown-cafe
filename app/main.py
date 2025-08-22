@@ -1,11 +1,15 @@
-# app/main.py
-
+import datetime
 from app.cafe import Cafe
 from app.errors import VaccineError, NotWearingMaskError
-import datetime
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
+    """
+    Повертає повідомлення про те, чи можуть друзі піти в кафе.
+
+    Якщо хтось не вакцинований — повертає помилку.
+    Якщо хтось без маски — рахує, скільки потрібно купити масок.
+    """
     masks_to_buy = 0
 
     for friend in friends:
